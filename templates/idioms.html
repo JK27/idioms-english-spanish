@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %} {% for idiom in idioms %} {{idiom.spanish_idiom}} {{idiom.english_idiom}} {{idiom.english_literal}} {{idiom.spanish_literal}} {{idiom.english_meaning}} {{idiom.spanish_meaning}} {% endfor %} 
+
+{% for idiom in idioms %}
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title">{{idiom.spanish_idiom}}</h3>
+        <h4 class="card-subtitle">{{idiom.english_idiom}}</h4>
+    </div>
+</div>
+{% endfor %} 
+{% endblock %}
