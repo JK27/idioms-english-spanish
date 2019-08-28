@@ -1,0 +1,19 @@
+h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.middle-column {
+    border: 0;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.card {
+    margin-bottom: 15px;
+}
