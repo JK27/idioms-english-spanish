@@ -32,13 +32,13 @@ def edit_idiom(idiom_id):                                               #-- Use 
     the_idiom = mongo.db.idioms.find_one({"_id":ObjectId(idiom_id)})    #-- Retrieve the idiom from the idioms database, using its id to find it...
     return render_template("editidiom.html", idiom=the_idiom)           #-- ... and then redirecting to /editidiom.html
     
-@app.route("/update_idiom/<idiom_id>", methods=["POST"])
+@app.route("/update_idiom/<idiom_id>", methods=["POST"])                #-- Data from form in editidiom.html is posted using this function...
 def update_idiom(idiom_id):
-    idioms = mongo.db.idioms
-    idioms.update({"_id":ObjectId(idiom_id)},
+    idioms = mongo.db.idioms                                            #-- ... data is updated in the idioms database...
+    idioms.update({"_id":ObjectId(idiom_id)},                           #-- ... updating the item with a specific id...
     {
-        "spanish_idiom": request.form.get("spanish_idiom"),
-        "english_literal": request.form.get("english_literal"),
+        "spanish_idiom": request.form.get("spanish_idiom"),             #-- ... each field for that item will be updated taking the input from...
+        "english_literal": request.form.get("english_literal"),         #-- ... the corresponding field on the form
         "english_meaning": request.form.get("english_meaning"),
         "english_idiom": request.form.get("english_idiom"),
         "spanish_literal": request.form.get("spanish_literal"),
@@ -46,7 +46,11 @@ def update_idiom(idiom_id):
     })
     return redirect(url_for("get_idioms"))
     
-    
+# -------------------------------------------------------------------- Function to delete idioms -- #
+@app.route("/delete_idiom/<idiom_id>")
+def delete_idiom(idiom_id):
+    mongo.db.idioms.remove({"_id": ObjectId(idiom_id)})
+    return redirect(url_for("get_idioms"))
     
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
