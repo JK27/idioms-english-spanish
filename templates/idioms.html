@@ -1,10 +1,12 @@
 {% extends "base.html" %} {% block content %}
 
-<div class="row">
+<div class="row header-row">
     <div class="col-5">
         <h2>Spanish Idiom</h2>
     </div>
-    <div class="col-2"></div>
+    <div class="col-2">
+        <a class="btn btn-success btn-sm add-button" href="{{url_for('add_idiom')}}" role="button"><strong>Add idiom </strong><i class="fas fa-plus-circle"></i></a>
+    </div>
     <div class="col-5">
         <h2>English Idiom</h2>
     </div>
@@ -23,8 +25,8 @@
         <h5 class="card-title"><em>Equivalent idiom</em></h5>
         <p class="card-text">Literal translation</p>
         <p class="card-text">Meaning</p>
-        <a class="btn btn-primary btn-sm" href="{{url_for('edit_idiom', idiom_id=idiom._id)}}" role="button">Edit</a>
-        <a class="btn btn-danger btn-sm" href="{{url_for('delete_idiom', idiom_id=idiom._id)}}" role="button">Delete</a>
+        <a class="btn btn-primary btn-sm middle-button" href="{{url_for('edit_idiom', idiom_id=idiom._id)}}" role="button"><strong>Edit this idiom </strong><i class="fas fa-edit"></i></a>
+        <a class="btn btn-danger btn-sm middle-button" href="{{url_for('delete_idiom', idiom_id=idiom._id)}}" role="button"><strong>Delete this idiom </strong><i class="fas fa-trash-alt"></i></a>
 
     </div>
 

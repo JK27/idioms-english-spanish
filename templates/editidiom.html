@@ -1,6 +1,8 @@
 {% extends "base.html" %} {% block content %}
 
-<h2>Edit Idiom</h2>
+<div class="header-row">
+    <h2>Edit Idiom</h2>
+</div>
 
 <div class="container">
     <form action="{{ url_for('update_idiom', idiom_id=idiom._id) }}" method="POST">
@@ -39,7 +41,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-success btn-block" name="action"><strong>Edit idiom</strong></button>
+            <button type="submit" class="btn btn-primary btn-block" name="action"><strong>Edit idiom </strong><i class="fas fa-edit"></i></button>
 
         </div>
     </form>
