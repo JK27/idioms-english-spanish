@@ -15,6 +15,18 @@ mongo = PyMongo(app)
 def get_idioms():
     return render_template("idioms.html", idioms=mongo.db.idioms.find())
     
+@app.route("/add_idiom")
+def add_idiom():
+    return render_template("addidiom.html")
+    
+@app.route("/insert_idiom", methods=["POST"])
+def insert_idiom():
+    idioms = mongo.db.idioms
+    idioms.insert_one(request.form.to_dict())
+    return redirect(url_for("get_idioms"))
+    
+    
+    
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

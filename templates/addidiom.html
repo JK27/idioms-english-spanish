@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block content %}
+
+<h2>Add Idiom</h2>
+
+<div class="container">
+    <form action="{{url_for('insert_idiom')}}" method="POST">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="idiom-spanish"><h5>Spanish idiom</h5></label>
+                    <textarea class="form-control" id="spanish_idiom" name="spanish_idiom" rows="2" placeholder="Type the idiom in Spahish here..."></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="literal-english"><h5>English literal translation</h5></label>
+                    <textarea class="form-control" id="english_literal" name="english_literal" rows="2" placeholder="Type the literal translation of the idiom in English here..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="meaning-english"><h5>Meaning in English</h5></label>
+                    <textarea class="form-control" id="english_meaning" name="english_meaning" rows="3" placeholder="Add a brief descirption of the meaning of the idiom in English here..."></textarea>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="idiom-english"><h5>English idiom</h5></label>
+                    <textarea class="form-control" id="english_idiom" name="english_idiom" rows="2" placeholder="Type the equivalent idiom in English here..."></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="literal-spanish"><h5>Spanish literal translation</h5></label>
+                    <textarea class="form-control" id="spanish_literal" name="spanish_literal" rows="2" placeholder="Type the literal translation of the idiom in Spanish here..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="meaning-spanish"><h5>Meaning in Spanish</h5></label>
+                    <textarea class="form-control" id="spanish_meaning" name="spanish_meaning" rows="3" placeholder="Add a brief descirption of the meaning of the idiom in Spanish here..."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-block" name="action"><strong>Add idiom</strong></button>
+
+        </div>
+    </form>
+</div>
+
+{% endblock %}
