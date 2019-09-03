@@ -14,52 +14,12 @@ mongo = PyMongo(app)
 @app.route("/get_idioms")
 def get_idioms():
     
-    pageSize = 10
-    pageNum = 1
+    pageSize = 2
+    offset = 2
     
-    return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize))
+    return render_template("idioms.html", idioms=mongo.db.idioms.find().sort("_id", pymongo.DESCENDING).skip.limit(pageSize))
 
-@app.route("/page_two")
-def page_two():
     
-    pageSize = 10
-    pageNum = 2
-    
-    return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize))
-    
-@app.route("/page_three")
-def page_three():
-    
-    pageSize = 10
-    pageNum = 3
-    
-    return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize))
-    
-@app.route("/page_four")
-def page_four():
-    
-    pageSize = 10
-    pageNum = 4
-    
-    return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize))
-    
-@app.route("/page_five")
-def page_five():
-    
-    pageSize = 10
-    pageNum = 5
-    
-    return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize))
-    
-@app.route("/page_six")
-def page_six():
-    
-    pageSize = 10
-    pageNum = 6
-    
-    return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize))
-
-
 
 
 # ---------------------------------------------------------------------     Functions to add idioms -- #

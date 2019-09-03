@@ -40,4 +40,24 @@
 
 </div>
 
-{% endfor %} {% endblock %}
+{% endfor %}
+
+<div class="row">
+    <div class="col">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="{{url_for('get_idioms')}}">1</a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('page_two')}}">2</a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('page_three')}}">3</a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('page_four')}}">4</a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('page_five')}}">5</a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('page_six')}}">6</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
