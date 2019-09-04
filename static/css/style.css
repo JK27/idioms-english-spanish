@@ -1,11 +1,8 @@
+/*----------------------------------------------------------------- Header row */
+
 h2 {
     text-align: center;
     text-decoration: underline;
-}
-
-.add-button {
-    width: 100%;
-    margin-top: 10px;
 }
 
 .header-row {
@@ -18,18 +15,46 @@ h2 {
     margin-left: 0px;
 }
 
+#add-button {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #51774c;
+    border-color: #51774c;
+    border-width: medium;
+}
+
+#add-button:hover,
+#add-button:active,
+#add-button:focus,
+#add-button:active:focus {
+    color: #51774c;
+    text-decoration: none;
+    background-color: #ffffff;
+    border-color: #51774c;
+}
+
+/*--------------------------------------------------------------------- Cards */
+
+.card {
+    margin-bottom: 15px;
+}
+
+#idiom-card {
+    background-color: #ffcc9926;
+}
+
+/*--------------------------------------------------------------- Middle column */
+
 .middle-column {
     border: 0;
     padding-top: 20px;
     text-align: center;
 }
 
+/* ------------------------------------------------------------------- Buttons */
+
 .middle-button {
     margin-bottom: 5px;
-}
-
-.card {
-    margin-bottom: 15px;
 }
 
 .btn-block {
@@ -37,3 +62,69 @@ h2 {
     margin-left: 15px;
 }
 
+#edit-button {
+    background-color: #7111b9;
+    border-color: #7111b9;
+    border-width: medium;
+}
+
+#edit-button:hover,
+#edit-button:active,
+#edit-button:focus,
+#edit-button:active:focus {
+    color: #7111b9;
+    text-decoration: none;
+    background-color: #ffffff;
+    border-color: #7111b9;
+}
+
+#delete-button {
+    background-color: #920815;
+    border-color: #920815;
+    border-width: medium;
+}
+
+#delete-button:hover,
+#delete-button:active,
+#delete-button:focus,
+#delete-button:active:focus {
+    color: #920815;
+    text-decoration: none;
+    background-color: #ffffff;
+    border-color: #920815;
+}
+
+/*------------------------------------------------------------------ Deletion modal */
+#cancel-button {
+    background-color: #33373a;
+    border-color: #33373a;
+    border-width: medium;
+}
+
+#cancel-button:hover,
+#cancel-button:active,
+#cancel-button:focus,
+#cancel-button:active:focus {
+    color: #33373a;
+    text-decoration: none;
+    background-color: #ffffff;
+    border-color: #33373a;
+}
+
+/* ---------------------------------------------------------------- Pagination */
+
+.page-link {
+    color: #362f29;
+    text-decoration: underline;
+    border-width: medium;
+    border-color: #dfd8d2;
+}
+
+.page-link:hover,
+.page-link:active,
+.page-link:focus,
+.page-link:active:focus {
+    color: #362f29;
+    text-decoration: none;
+    border-color: #362f29;
+}
