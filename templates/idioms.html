@@ -2,20 +2,14 @@
 
 <!------------------------------------------------------------------ Header row-->
 <div class="row header-row">
-    <div class="col">
-        <div class="d-none col-md-5">
-            <h2>Spanish Idiom</h2>
-        </div>
+    <div class="col-d-none col-md-5 header-item">
+        <h2>Spanish Idiom</h2>
     </div>
-    <div class="col">
-        <div class="d-none col-md-2">
-            <a class="btn btn-success btn-sm" id="add-button" href="{{url_for('add_idiom')}}" role="button"><strong>Add idiom </strong><i class="fas fa-plus-circle"></i></a>
-        </div>
+    <div class="col-d-none col-md-2 header-item">
+        <a class="btn btn-success btn-sm" id="add-button" href="{{url_for('add_idiom')}}" role="button"><strong>Add idiom </strong><i class="fas fa-plus-circle"></i></a>
     </div>
-    <div class="col">
-        <div class="d-none col-md-5">
-            <h2>English Idiom</h2>
-        </div>
+    <div class="col-d-none col-md-5 header-item">
+        <h2>English Idiom</h2>
     </div>
 </div>
 {% for idiom in idioms %}
@@ -23,7 +17,9 @@
 <div class="row">
     <!----------------------------------------------------------------------------- Spanish idiom card-->
 
-
+    <div class="col d-md-none mobile-card">
+        <h4>Spanish Idiom</h4>
+    </div>
     <div class="card col-12 col-md-5" id="idiom-card">
         <div class="card-body">
             <h5 class="card-title"><em>"{{idiom.spanish_idiom}}"</em></h5>
@@ -33,9 +29,11 @@
     </div>
     <!------------------------------------------------------------------------------ Middle column-->
     <div class="card middle-column col-12 col-md-2">
-        <h5 class="card-title"><em>Equivalent idiom</em></h5>
+        <h5 class="card-title d-none d-md-block"><em>Equivalent idiom</em></h5>
         <p class="card-text d-none d-md-block">Literal translation</p>
         <p class="card-text d-none d-md-block">Meaning</p>
+        <a class="btn btn-success btn-sm middle-button d-md-none" id="add-button" href="{{url_for('add_idiom')}}" role="button"><strong>Add idiom </strong><i class="fas fa-plus-circle"></i></a>
+
         <a class="btn btn-primary btn-sm middle-button" id="edit-button" href="{{url_for('edit_idiom', idiom_id=idiom._id)}}" role="button"><strong>Edit this idiom </strong><i class="fas fa-edit"></i></a>
         <a class="btn btn-danger btn-sm middle-button" id="delete-button" data-toggle="modal" href="#deletion-modal{{ idiom._id }}" role="button"><strong>Delete this idiom </strong><i class="fas fa-trash-alt"></i></a>
 
@@ -65,6 +63,9 @@
 
     <!----------------------------------------------------------------------------- English idiom card-->
 
+    <div class="col d-md-none mobile-card">
+        <h4>English Idiom</h4>
+    </div>
     <div class="card col-12 col-md-5" id="idiom-card">
         <div class="card-body">
             <h5 class="card-title"><em>"{{idiom.english_idiom}}"</em></h5>
