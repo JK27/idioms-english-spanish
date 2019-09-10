@@ -8,7 +8,6 @@ Django==1.11.10
 enum34==1.1.6
 Flask==1.1.1
 Flask-PyMongo==2.3.0
-flask_pymongo
 futures==3.3.0
 idna==2.6
 ikpdb==1.2.3
