@@ -6,7 +6,7 @@
         <h2>Spanish Idiom</h2>
     </div>
     <div class="col-d-none col-md-2 header-item">
-        <a class="btn btn-success btn-sm" id="add-button" href="{{url_for('add_idiom')}}" role="button"><strong>Add idiom </strong></a>
+        <a class="btn btn-success btn-sm" id="add-button" href="{{url_for('add_idiom')}}" role="button"><strong>Add idiom </strong><i class="fas fa-plus-circle"></i></a>
     </div>
     <div class="col-d-none col-md-5 header-item">
         <h2>English Idiom</h2>
@@ -32,10 +32,10 @@
         <h5 class="card-title d-none d-md-block"><em>Equivalent idiom</em></h5>
         <p class="card-text d-none d-md-block">Literal translation</p>
         <p class="card-text d-none d-md-block">Meaning</p>
-        <a class="btn btn-success btn-sm middle-button d-md-none" id="add-button" href="{{url_for('add_idiom')}}" role="button"><strong>Add idiom </strong></a>
+        <a class="btn btn-success btn-sm middle-button d-md-none" id="add-button" href="{{url_for('add_idiom')}}" role="button"><strong>Add idiom </strong><i class="fas fa-plus-circle"></i></a>
 
-        <a class="btn btn-primary btn-sm middle-button" id="edit-button" href="{{url_for('edit_idiom', idiom_id=idiom._id)}}" role="button"><strong>Edit this idiom </strong></a>
-        <a class="btn btn-danger btn-sm middle-button" id="delete-button" data-toggle="modal" href="#deletion-modal{{ idiom._id }}" role="button"><strong>Delete this idiom </strong></a>
+        <a class="btn btn-primary btn-sm middle-button" id="edit-button" href="{{url_for('edit_idiom', idiom_id=idiom._id)}}" role="button"><strong>Edit this idiom </strong><i class="fas fa-edit"></i></a>
+        <a class="btn btn-danger btn-sm middle-button" id="delete-button" data-toggle="modal" href="#deletion-modal{{ idiom._id }}" role="button"><strong>Delete this idiom </strong><i class="fas fa-trash-alt"></i></a>
 
         <!-------------------------------------------------------------------------- Deletion modal-->
 
@@ -53,9 +53,9 @@
                         <h5><em>"{{idiom.spanish_idiom}}"</em></h5>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary  btn-sm middle-button" id="cancel-button" data-dismiss="modal"><strong>Cancel </strong>
+                        <button class="btn btn-secondary  btn-sm middle-button" id="cancel-button" data-dismiss="modal"><strong>Cancel </strong><i class="fas fa-undo-alt"></i>
                         </button>
-                        <a class="btn btn-danger btn-sm middle-button" id="delete-button" href="{{url_for('delete_idiom', idiom_id=idiom._id)}}" role="button"><strong>Delete this idiom </strong></a>
+                        <a class="btn btn-danger btn-sm middle-button" id="delete-button" href="{{url_for('delete_idiom', idiom_id=idiom._id)}}" role="button"><strong>Delete this idiom </strong><i class="fas fa-trash-alt"></i></a>
                     </div>
                 </div>
             </div>
@@ -86,11 +86,11 @@
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
                 <li class="page-item"><a class="page-link" href="{{url_for('get_idioms')}}"><strong>1</strong></a></li>
-                <li class="page-item"><a class="page-link" href="{{url_for('get_idioms')}}"><strong>2</strong></a></li>
-                <li class="page-item"><a class="page-link" href="{{url_for('get_idioms')}}"><strong>3</strong></a></li>
-                <li class="page-item"><a class="page-link" href="{{url_for('get_idioms')}}"><strong>4</strong></a></li>
-                <li class="page-item"><a class="page-link" href="{{url_for('get_idioms')}}"><strong>5</strong></a></li>
-                <li class="page-item"><a class="page-link" href="{{url_for('get_idioms')}}"><strong>6</strong></a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('page_two')}}"><strong>2</strong></a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('page_three')}}"><strong>3</strong></a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('page_four')}}"><strong>4</strong></a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('page_five')}}"><strong>5</strong></a></li>
+                <li class="page-item"><a class="page-link" href="{{url_for('page_six')}}"><strong>6</strong></a></li>
             </ul>
         </nav>
     </div>
