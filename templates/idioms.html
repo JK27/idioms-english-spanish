@@ -81,16 +81,12 @@
 
 {% endfor %}
 
-<div class="row">
+<div class="row paginator">
     <div class="col">
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
                 <li class="page-item"><a class="page-link" href="{{url_for('get_idioms')}}"><strong>1</strong></a></li>
-                <li class="page-item"><a class="page-link" href="{{url_for('page_two')}}"><strong>2</strong></a></li>
-                <li class="page-item"><a class="page-link" href="{{url_for('page_three')}}"><strong>3</strong></a></li>
-                <li class="page-item"><a class="page-link" href="{{url_for('page_four')}}"><strong>4</strong></a></li>
-                <li class="page-item"><a class="page-link" href="{{url_for('page_five')}}"><strong>5</strong></a></li>
-                <li class="page-item"><a class="page-link" href="{{url_for('page_six')}}"><strong>6</strong></a></li>
+               
             </ul>
         </nav>
     </div>
