@@ -141,6 +141,7 @@ h2 {
 .page-link:focus,
 .page-link:active:focus {
     color: #362f29;
+    background-color: #ffcc9926;
     text-decoration: none;
     border-color: #362f29;
 }
