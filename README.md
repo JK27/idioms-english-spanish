@@ -65,9 +65,12 @@ The application is intended to be a collaborative library of idioms in Spanish a
 - Font Awesome icons for butttons (https://fontawesome.com/)
 - Git for version control (https://git-scm.com/)
 - GitHub for hosting the repository (https://github.com/)
-- GitHub Pages for hosting and deployment (https://jk27.github.io/idioms-english-spanish/)
 - Heroku App for hosting and deployment (https://idioms-english-spanish.herokuapp.com/)
 - Am I responsive for testing responsiveness (http://ami.responsivedesign.is)
+
+## Deployment
+
+The application is hosted as an app in Heroku and can be seen using the following link on the web browser of your preference: https://idioms-english-spanish.herokuapp.com/
 
 
 

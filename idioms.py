@@ -8,39 +8,13 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "idioms-and-proverbs"
 app.config["MONGO_URI"] = "mongodb+srv://jk27:07diciembre18@cluster0-9pga0.mongodb.net/idioms-and-proverbs?retryWrites=true&w=majority"
 
-mongo = PyMongo(app)
+mongo = PyMongo(app)                                    # 
 
+# --------------------------------------------------------------------------- Functions for displaying the idioms and pagination
 @app.route("/")
 @app.route("/get_idioms")
 def get_idioms():
     
-    # idiom = mongo.db.idioms
-    
-    # offset = 20
-    # pageSize = 3
-    
-    # starting_id = idiom.find().sort('_id', pymongo.DESCENDING)
-    # last_id = starting_id[offset]['_id']
-    
-    # # idioms = idiom.find({'_id' : {'$lte' : last_id}}).limit(pageSize)
-    
-        
-    # next_url = '/idioms?pageSize=' + str(pageSize) + '&offset=' + str(offset + pageSize)
-    # prev_url = '/idioms?pageSize=' + str(pageSize) + '&offset=' + str(offset - pageSize)
-    
-    # return render_template("idioms.html", idioms=idiom.find({'_id' : {'$lte' : last_id}}).limit(pageSize))
-
-
-    
-    
-    
-    
-#################################################################################################################
-
-    # return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize).sort("_id", -1))
-
-    # return jsonify({'result' : output, 'prev_url' :prev_url, 'next_url' : next_url})
-
     pageSize = 10
     pageNum = 1
     
@@ -88,6 +62,36 @@ def page_six():
 
 
 
+######################################################################################################################################
+
+    # idiom = mongo.db.idioms
+    
+    # offset = 20
+    # pageSize = 3
+    
+    # starting_id = idiom.find().sort('_id', pymongo.DESCENDING)
+    # last_id = starting_id[offset]['_id']
+    
+    # # idioms = idiom.find({'_id' : {'$lte' : last_id}}).limit(pageSize)
+    
+        
+    # next_url = '/idioms?pageSize=' + str(pageSize) + '&offset=' + str(offset + pageSize)
+    # prev_url = '/idioms?pageSize=' + str(pageSize) + '&offset=' + str(offset - pageSize)
+    
+    # return render_template("idioms.html", idioms=idiom.find({'_id' : {'$lte' : last_id}}).limit(pageSize))
+
+
+    
+    
+    
+    
+#################################################################################################################
+
+    # return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize).sort("_id", -1))
+
+    # return jsonify({'result' : output, 'prev_url' :prev_url, 'next_url' : next_url})
+
+####################################################################################################################
 
 # ---------------------------------------------------------------------     Functions to add idioms -- #
 @app.route("/add_idiom")

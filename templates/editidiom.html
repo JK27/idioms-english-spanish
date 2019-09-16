@@ -5,19 +5,24 @@
 </div>
 
 <div class="container">
+    <!------------------------------------------------------------------------------------- Idiom edition form -->
     <form action="{{ url_for('update_idiom', idiom_id=idiom._id) }}" method="POST">
         <div class="row">
+            <!-- All input fields display the current corresponding data in that field for the idiom to be edited -->
             <div class="col-6">
+                <!-- Field for Spanish idiom-->
                 <div class="form-group">
                     <label for="idiom-spanish"><h5>Spanish idiom</h5></label>
                     <input class="form-control" id="spanish_idiom" name="spanish_idiom" rows="2" value="{{idiom.spanish_idiom}}"></input>
                 </div>
 
-
+                <!-- Field for literal translation in English -->
                 <div class="form-group">
                     <label for="literal-english"><h5>English literal translation</h5></label>
                     <input class="form-control" id="english_literal" name="english_literal" rows="2" value="{{idiom.english_literal}}"></input>
                 </div>
+
+                <!-- Field for meaning in English-->
                 <div class="form-group">
                     <label for="meaning-english"><h5>Meaning in English</h5></label>
                     <input class="form-control" id="english_meaning" name="english_meaning" rows="3" value="{{idiom.english_meaning}}"></input>
@@ -25,23 +30,28 @@
             </div>
 
             <div class="col-6">
+                <!-- Field for equivalent idiom in English-->
                 <div class="form-group">
                     <label for="idiom-english"><h5>English idiom</h5></label>
                     <input class="form-control" id="english_idiom" name="english_idiom" rows="2" value="{{idiom.english_idiom}}"></input>
                 </div>
 
-
+                <!-- Field for literal translation in Spanish of the English idiom-->
                 <div class="form-group">
                     <label for="literal-spanish"><h5>Spanish literal translation</h5></label>
                     <input class="form-control" id="spanish_literal" name="spanish_literal" rows="2" value="{{idiom.spanish_literal}}"></input>
                 </div>
+
+                <!-- Field for the meaning in Spanish-->
                 <div class="form-group">
                     <label for="meaning-spanish"><h5>Meaning in Spanish</h5></label>
                     <input class="form-control" id="spanish_meaning" name="spanish_meaning" rows="3" value="{{idiom.spanish_meaning}}"></input>
                 </div>
             </div>
 
+            <!-- Edit button submits data input in fields and takes back to idioms page-->
             <button type="submit" class="btn btn-primary btn-block" id="edit-button" name="action"><strong>Edit idiom </strong><i class="fas fa-edit"></i></button>
+            <!-- Go back button takes back to idioms page-->
             <a class="btn btn-secondary  btn-block" id="cancel-button" href="{{url_for('get_idioms')}}"><strong>Go back </strong><i class="fas fa-undo-alt"></i></a>
 
         </div>
