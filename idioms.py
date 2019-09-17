@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, Blueprint
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
-from flask_paginate import Pagination, get_page_parameter
+from flask_paginate import Pagination, get_page_args
 
 app = Flask(__name__)
 # app = Blueprint('idioms', __name__)
@@ -24,11 +24,12 @@ def get_idioms():
     q = request.args.get('q')
     if q:
         search = True
+    
+    page, per_page, offset = get_page_args()
+    # page, per_page, offset = request.args.get(get_page_parameter(), type=int, default=1)
 
-    page = request.args.get(get_page_parameter(), type=int, default=1)
-
-    idioms = idiom.find().sort('_id', pymongo.DESCENDING).limit(pageSize).skip(pageSize*(page-1))
-    pagination = Pagination(page=page, total=idioms.count(), search=search, record_name='idioms')
+    idioms = idiom.find().sort('_id', pymongo.DESCENDING).limit(per_page).skip(offset)
+    pagination = Pagination(page=page, total=idioms.count(), per_page=per_page, offset=offset, search=search, record_name='idioms')
     # 'page' is the default name of the page parameter, it can be customized
     # e.g. Pagination(page_parameter='p', ...)
     # or set PAGE_PARAMETER in config file

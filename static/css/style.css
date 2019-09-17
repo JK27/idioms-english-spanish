@@ -128,22 +128,21 @@ h2 {
 }
 
 /* ---------------------------------------------------------------- Pagination */
+.pagination {
+    justify-content: center;    
+}
 
-.pagination-page-info {
-    padding: .6em;
-    padding-left: 0;
-    width: 40em;
-    margin: .5em;
-    margin-left: 0;
-    font-size: 12px;
+.pagination ul{
+    display: flex;
+    list-style-type: none;
 }
-.pagination-page-info b {
-    color: black;
-    background: #6aa6ed;
-    padding-left: 2px;
-    padding: .1em .25em;
-    font-size: 150%;
+
+.pagination li {
+    color: #362f29;
+    border-width: medium;
+    border-color: #dfd8d2;
 }
+
 
 /*.page-link {*/
 /*    color: #362f29;*/
