@@ -18,15 +18,13 @@ mongo = PyMongo(app)
 def get_idioms():
     
     idiom = mongo.db.idioms
-    pageSize = 2
-    
+
     search = False
     q = request.args.get('q')
     if q:
         search = True
     
     page, per_page, offset = get_page_args()
-    # page, per_page, offset = request.args.get(get_page_parameter(), type=int, default=1)
 
     idioms = idiom.find().sort('_id', pymongo.DESCENDING).limit(per_page).skip(offset)
     pagination = Pagination(page=page, total=idioms.count(), per_page=per_page, offset=offset, search=search, record_name='idioms')
