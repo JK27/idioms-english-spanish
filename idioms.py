@@ -1,98 +1,48 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, jsonify
+from flask import Flask, render_template, redirect, request, url_for, Blueprint
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
+from flask_paginate import Pagination, get_page_parameter
 
 app = Flask(__name__)
+# app = Blueprint('idioms', __name__)
 
 app.config["MONGO_DBNAME"] = "idioms-and-proverbs"
 app.config["MONGO_URI"] = "mongodb+srv://jk27:07diciembre18@cluster0-9pga0.mongodb.net/idioms-and-proverbs?retryWrites=true&w=majority"
 
-mongo = PyMongo(app)                                    # 
+mongo = PyMongo(app)                                    
 
 # --------------------------------------------------------------------------- Functions for displaying the idioms and pagination
 @app.route("/")
 @app.route("/get_idioms")
 def get_idioms():
     
-    pageSize = 10
-    pageNum = 1
+    idiom = mongo.db.idioms
+    pageSize = 2
     
-    return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize).sort("_id", -1))
+    search = False
+    q = request.args.get('q')
+    if q:
+        search = True
 
-@app.route("/page_two")
-def page_two():
-    
-    pageSize = 10
-    pageNum = 2
-    
-    return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize).sort("_id", -1))
-    
-@app.route("/page_three")
-def page_three():
-    
-    pageSize = 10
-    pageNum = 3
-    
-    return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize).sort("_id", -1))
-    
-@app.route("/page_four")
-def page_four():
-    
-    pageSize = 10
-    pageNum = 4
-    
-    return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize).sort("_id", -1))
-    
-@app.route("/page_five")
-def page_five():
-    
-    pageSize = 10
-    pageNum = 5
-    
-    return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize).sort("_id", -1))
-    
-@app.route("/page_six")
-def page_six():
-    
-    pageSize = 10
-    pageNum = 6
-    
-    return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize).sort("_id", -1))
+    page = request.args.get(get_page_parameter(), type=int, default=1)
 
+    idioms = idiom.find().sort('_id', pymongo.DESCENDING).limit(pageSize).skip(pageSize*(page-1))
+    pagination = Pagination(page=page, total=idioms.count(), search=search, record_name='idioms')
+    # 'page' is the default name of the page parameter, it can be customized
+    # e.g. Pagination(page_parameter='p', ...)
+    # or set PAGE_PARAMETER in config file
+    # also likes page_parameter, you can customize for per_page_parameter
+    # you can set PER_PAGE_PARAMETER in config file
+    # e.g. Pagination(per_page_parameter='pp')
 
-
-######################################################################################################################################
-
-    # idiom = mongo.db.idioms
-    
-    # offset = 20
-    # pageSize = 3
-    
-    # starting_id = idiom.find().sort('_id', pymongo.DESCENDING)
-    # last_id = starting_id[offset]['_id']
-    
-    # # idioms = idiom.find({'_id' : {'$lte' : last_id}}).limit(pageSize)
-    
-        
-    # next_url = '/idioms?pageSize=' + str(pageSize) + '&offset=' + str(offset + pageSize)
-    # prev_url = '/idioms?pageSize=' + str(pageSize) + '&offset=' + str(offset - pageSize)
-    
-    # return render_template("idioms.html", idioms=idiom.find({'_id' : {'$lte' : last_id}}).limit(pageSize))
-
-
+    return render_template('idioms.html',
+                           idioms=idioms,
+                           pagination=pagination,
+                           )
     
     
     
-    
-#################################################################################################################
-
-    # return render_template("idioms.html", idioms=mongo.db.idioms.find().skip(pageSize*(pageNum-1)).limit(pageSize).sort("_id", -1))
-
-    # return jsonify({'result' : output, 'prev_url' :prev_url, 'next_url' : next_url})
-
-####################################################################################################################
-
 # ---------------------------------------------------------------------     Functions to add idioms -- #
 @app.route("/add_idiom")
 def add_idiom():

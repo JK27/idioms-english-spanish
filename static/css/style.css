@@ -129,22 +129,38 @@ h2 {
 
 /* ---------------------------------------------------------------- Pagination */
 
-.page-link {
-    color: #362f29;
-    text-decoration: underline;
-    border-width: medium;
-    border-color: #dfd8d2;
+.pagination-page-info {
+    padding: .6em;
+    padding-left: 0;
+    width: 40em;
+    margin: .5em;
+    margin-left: 0;
+    font-size: 12px;
+}
+.pagination-page-info b {
+    color: black;
+    background: #6aa6ed;
+    padding-left: 2px;
+    padding: .1em .25em;
+    font-size: 150%;
 }
 
-.page-link:hover,
-.page-link:active,
-.page-link:focus,
-.page-link:active:focus {
-    color: #362f29;
-    background-color: #ffcc9926;
-    text-decoration: none;
-    border-color: #362f29;
-}
+/*.page-link {*/
+/*    color: #362f29;*/
+/*    text-decoration: underline;*/
+/*    border-width: medium;*/
+/*    border-color: #dfd8d2;*/
+/*}*/
+
+/*.page-link:hover,*/
+/*.page-link:active,*/
+/*.page-link:focus,*/
+/*.page-link:active:focus {*/
+/*    color: #362f29;*/
+/*    background-color: #ffcc9926;*/
+/*    text-decoration: none;*/
+/*    border-color: #362f29;*/
+/*}*/
 
 /*-------------------------------------------------------------- Media queries */
 
