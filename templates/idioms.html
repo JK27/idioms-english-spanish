@@ -90,16 +90,6 @@
 {% endfor %}
 
 <!------------------------------------------------------------------------------------------- Paginator -->
-{{ pagination.links }}
-<table>
-  <tbody>
-    {% for idiom in idioms %}
-      <tr>
-        <td>{{ loop.index + pagination.skip }}</td>
-        <td>{{ idiom._id }}</td>
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
+
 {{ pagination.links }}
 {% endblock %}

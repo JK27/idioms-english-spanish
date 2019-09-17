@@ -30,12 +30,6 @@ def get_idioms():
 
     idioms = idiom.find().sort('_id', pymongo.DESCENDING).limit(per_page).skip(offset)
     pagination = Pagination(page=page, total=idioms.count(), per_page=per_page, offset=offset, search=search, record_name='idioms')
-    # 'page' is the default name of the page parameter, it can be customized
-    # e.g. Pagination(page_parameter='p', ...)
-    # or set PAGE_PARAMETER in config file
-    # also likes page_parameter, you can customize for per_page_parameter
-    # you can set PER_PAGE_PARAMETER in config file
-    # e.g. Pagination(per_page_parameter='pp')
 
     return render_template('idioms.html',
                            idioms=idioms,
