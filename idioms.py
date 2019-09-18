@@ -5,12 +5,15 @@ from bson.objectid import ObjectId
 from flask_paginate import Pagination, get_page_args
 
 app = Flask(__name__)
-# app = Blueprint('idioms', __name__)
+
+MONGODB_URI = os.getenv("MONGO_URI")
 
 app.config["MONGO_DBNAME"] = "idioms-and-proverbs"
-app.config["MONGO_URI"] = "mongodb+srv://jk27:07diciembre18@cluster0-9pga0.mongodb.net/idioms-and-proverbs?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = MONGODB_URI
 
-mongo = PyMongo(app)                                    
+mongo = PyMongo(app)  
+
+
 
 # --------------------------------------------------------------------------- Functions for displaying the idioms and pagination
 @app.route("/")

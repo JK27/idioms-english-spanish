@@ -33,7 +33,7 @@ The application is intended to be a collaborative library of idioms in Spanish a
     - CRUD - Create, Read, Update and Delete elements
 - Git - Version Control System
 - GitHub - Remote Repository
-- Deployed - Hosted on Github Pages and Heroku apps
+- Deployed - Hosted on Heroku apps
 
 ### Features to be implemented
 
@@ -60,13 +60,17 @@ The application is intended to be a collaborative library of idioms in Spanish a
 
 - HTML for teh structure og the application
 - CSS for styling
-- Google Chrome for web dev and tools (https://www.google.com/chrome/)
+- Google Chrome for browser and dev tools (https://www.google.com/chrome/)
+- Mozilla Firefox for browser and dev tools (https://www.mozilla.org/en-US/firefox/new)
 - Bootstrap framework for responsiveness and structure of the application (https://getbootstrap.com/)
 - Font Awesome icons for butttons (https://fontawesome.com/)
 - Git for version control (https://git-scm.com/)
 - GitHub for hosting the repository (https://github.com/)
 - Heroku App for hosting and deployment (https://idioms-english-spanish.herokuapp.com/)
 - Am I responsive for testing responsiveness (http://ami.responsivedesign.is)
+
+## Testing
+
 
 ## Deployment
 
