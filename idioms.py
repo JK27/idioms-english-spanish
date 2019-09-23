@@ -13,8 +13,6 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 
 mongo = PyMongo(app)  
 
-
-
 # --------------------------------------------------------------------------- Functions for displaying the idioms and pagination
 @app.route("/")
 @app.route("/get_idioms")
@@ -28,8 +26,10 @@ def get_idioms():
         search = True
     
     page, per_page, offset = get_page_args()
-
-    idioms = idiom.find().sort('_id', pymongo.DESCENDING).limit(per_page).skip(offset)
+    
+    #---------------------------------------------------------------------- Finds all idioms, sorts them in descending order by _id,...
+    #---------------------------------------------------------------------- ... shows default 10 items per page.
+    idioms = idiom.find().sort('_id', pymongo.DESCENDING).limit(per_page).skip(offset)  
     pagination = Pagination(page=page, total=idioms.count(), per_page=per_page, offset=offset, search=search, record_name='idioms')
 
     return render_template('idioms.html',
@@ -42,7 +42,7 @@ def get_idioms():
 # ---------------------------------------------------------------------     Functions to add idioms -- #
 @app.route("/add_idiom")
 def add_idiom():
-    return render_template("addidiom.html")
+    return render_template("addidiom.html")                             #-- Redirects to the idioms addition form hosted on addidiom.html
     
 @app.route("/insert_idiom", methods=["POST"])                           #-- Data from form in addidiom.html is posted using this function...
 def insert_idiom():
@@ -54,7 +54,7 @@ def insert_idiom():
 @app.route("/edit_idiom/ <idiom_id>")
 def edit_idiom(idiom_id):                                               #-- Use idiom_id to target the idiom that want to edit
     the_idiom = mongo.db.idioms.find_one({"_id":ObjectId(idiom_id)})    #-- Retrieve the idiom from the idioms database, using its id to find it...
-    return render_template("editidiom.html", idiom=the_idiom)           #-- ... and then redirecting to /editidiom.html
+    return render_template("editidiom.html", idiom=the_idiom)           #-- ... and then redirecting to the idiom edition form hosted on editidiom.html
     
 @app.route("/update_idiom/<idiom_id>", methods=["POST"])                #-- Data from form in editidiom.html is posted using this function...
 def update_idiom(idiom_id):
@@ -62,19 +62,19 @@ def update_idiom(idiom_id):
     idioms.update({"_id":ObjectId(idiom_id)},                           #-- ... updating the item with a specific id...
     {
         "spanish_idiom": request.form.get("spanish_idiom"),             #-- ... each field for that item will be updated taking the input from...
-        "english_literal": request.form.get("english_literal"),         #-- ... the corresponding field on the form
+        "english_literal": request.form.get("english_literal"),         #-- ... the corresponding field on the form...
         "english_meaning": request.form.get("english_meaning"),
         "english_idiom": request.form.get("english_idiom"),
         "spanish_literal": request.form.get("spanish_literal"),
         "spanish_meaning": request.form.get("spanish_meaning")
     })
-    return redirect(url_for("get_idioms"))
+    return redirect(url_for("get_idioms"))                              #-- ... and then redirects to idioms page
     
 # -------------------------------------------------------------------- Function to delete idioms -- #
 @app.route("/delete_idiom/<idiom_id>")
-def delete_idiom(idiom_id):
-    mongo.db.idioms.remove({"_id": ObjectId(idiom_id)})
-    return redirect(url_for("get_idioms"))
+def delete_idiom(idiom_id):                                             #-- Use idiom_id to target the idiom to be deleted...
+    mongo.db.idioms.remove({"_id": ObjectId(idiom_id)})                 #-- ...removes the idiom with that specific _id...
+    return redirect(url_for("get_idioms"))                              #-- ... and then redirects to idioms page
     
     
     

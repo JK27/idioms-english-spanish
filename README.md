@@ -58,20 +58,21 @@ The application is intended to be a collaborative library of idioms in Spanish a
 
 ## Technologies used
 
-- HTML for the structure of the application
-- CSS for styling
-- Google Chrome for browser and dev tools (https://www.google.com/chrome/)
-- Mozilla Firefox for browser and dev tools (https://www.mozilla.org/en-US/firefox/new)
-- Bootstrap framework for responsiveness and structure of the application (https://getbootstrap.com/)
-- Font Awesome icons for buttons (https://fontawesome.com/)
-- Git for version control (https://git-scm.com/)
-- GitHub for hosting the repository (https://github.com/)
-- Heroku App for hosting and deployment (https://idioms-english-spanish.herokuapp.com/)
-- Am I responsive for testing responsiveness (http://ami.responsivedesign.is)
+- HTML for the structure of the application.
+- CSS for styling.
+- Google Chrome for browser and dev tools (https://www.google.com/chrome/).
+- Mozilla Firefox for browser and dev tools (https://www.mozilla.org/en-US/firefox/new).
+- Bootstrap framework for responsiveness and structure of the application (https://getbootstrap.com/).
+- Font Awesome icons for buttons (https://fontawesome.com/).
+- Werkzeug Web Server Gateway Interface for debugging and structured error logs.
+- Git for version control (https://git-scm.com/).
+- GitHub for hosting the repository (https://github.com/).
+- Heroku App for hosting and deployment (https://idioms-english-spanish.herokuapp.com/).
+- Am I responsive for testing responsiveness (http://ami.responsivedesign.is).
 
 ## Testing
 
-All functionalities of the application have been regularly tested during the building process using the python console to check the results and then write the functionalities to pass the tests.
+All functionalities of the application have been regularly tested during the building process using the python console to check the results and then write the functionalities to pass the tests. After each function was written, and after adding every piece of code, this was tested again on the browser using Google Chrome Developer tools and Werkzeug Web Server Gateway Interface for debugging.
 
 The application has also been regularly tested on different browsers (Google Chrome, Mozilla Firefox and Internet Explorer/Microsoft Edge) and also on different devices (computer, laptop and mobile phones).
 

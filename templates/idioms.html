@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% block content %}     <!-- Inherits parent template from base.html and injects below block content into the template-->
 
 <!--------------------------------------------------------------------------------------- Header row-->
 <div class="row header-row">
@@ -15,7 +15,7 @@
     </div>
 </div>
 
-{% for idiom in idioms %}
+{% for idiom in idioms %}     <!-- Loops through all idioms in the collection creating the below elements for each item in the collection-->
 
 <div class="row">
     <!----------------------------------------------------------------------------- Spanish idiom card-->
