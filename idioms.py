@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, Blueprint
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
-from flask_paginate import Pagination, get_page_args
+from flask_paginate import Pagination, get_page_args, get_page_parameter
 
 app = Flask(__name__)
 
@@ -25,12 +25,14 @@ def get_idioms():
     if q:
         search = True
     
-    page, per_page, offset = get_page_args()
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
+
     
-    #---------------------------------------------------------------------- Finds all idioms, sorts them in descending order by _id,...
-    #---------------------------------------------------------------------- ... shows default 10 items per page.
+    #---------------------------------------------------------------------- Finds all idioms, sorts in descending order by _id, shows defautl 10 per page
     idioms = idiom.find().sort('_id', pymongo.DESCENDING).limit(per_page).skip(offset)  
-    pagination = Pagination(page=page, total=idioms.count(), per_page=per_page, offset=offset, search=search, record_name='idioms')
+    pagination = Pagination(page=page, total=idioms.count(), per_page=per_page, offset=offset, 
+                search=search, record_name='idioms')
 
     return render_template('idioms.html',
                            idioms=idioms,
@@ -39,7 +41,7 @@ def get_idioms():
     
     
     
-# ---------------------------------------------------------------------     Functions to add idioms -- #
+# ---------------------------------------------------------------------     Functions to add idioms
 @app.route("/add_idiom")
 def add_idiom():
     return render_template("addidiom.html")                             #-- Redirects to the idioms addition form hosted on addidiom.html
